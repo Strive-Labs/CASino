@@ -1,25 +1,25 @@
 CASino::Engine.routes.draw do
-  mount CASino::API => '/api'
+  #mount CASino::API => '/api'
 
   resources :sessions, only: [:index, :destroy]
-  resources :two_factor_authenticators, only: [:new, :create, :destroy]
+  #resources :two_factor_authenticators, only: [:new, :create, :destroy]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#logout'
   post 'validate_otp' => 'sessions#validate_otp'
 
-  resources :login_attempts, only: [:index]
+  #resources :login_attempts, only: [:index]
 
-  get 'destroy-other-sessions' => 'sessions#destroy_others'
+  #get 'destroy-other-sessions' => 'sessions#destroy_others'
 
-  get 'validate' => 'service_tickets#validate'
-  get 'serviceValidate' => 'service_tickets#service_validate'
+  #get 'validate' => 'service_tickets#validate'
+  #get 'serviceValidate' => 'service_tickets#service_validate'
 
-  get 'proxyValidate' => 'proxy_tickets#proxy_validate'
-  get 'proxy' => 'proxy_tickets#create'
+  #get 'proxyValidate' => 'proxy_tickets#proxy_validate'
+  #get 'proxy' => 'proxy_tickets#create'
 
-  get 'authTokenLogin' => 'auth_tokens#login'
+  #get 'authTokenLogin' => 'auth_tokens#login'
 
   root to: redirect('login')
 
