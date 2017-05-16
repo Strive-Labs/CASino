@@ -1,13 +1,13 @@
 CASino::Engine.routes.draw do
   #mount CASino::API => '/api'
 
-  resources :sessions, only: [:index, :destroy]
+  #resources :sessions, only: [:index, :destroy]
   #resources :two_factor_authenticators, only: [:new, :create, :destroy]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#logout'
-  post 'validate_otp' => 'sessions#validate_otp'
+  # post 'validate_otp' => 'sessions#validate_otp'
 
   #resources :login_attempts, only: [:index]
 
